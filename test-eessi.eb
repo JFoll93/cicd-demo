@@ -12,9 +12,9 @@ description = """
 toolchain = {'name': 'gompi', 'version': '2023b'}
 
 github_account = 'JFoll93'
-source_urls = ['https://github.com/%(github_account)s/%(name)s/cicd-demo/']
+source_urls = ['https://github.com/%(github_account)s/%(name)s/cicd-demo/archive']
 
-sources = ['%(software_commit)s.tar.gz']
+sources = ['build_test.tar.gz']
 
 builddependencies = [
     ('CMake', '3.27.6'),
