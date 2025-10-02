@@ -1,0 +1,16 @@
+name: Testing build EESSI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: eessi/github-action-eessi@v3
+    - name: Test EESSI
+      run: |
+        module load HDF5 CMake buildenv
+        mkdir build && cd build
+        cmake ..
+        make -j
+        ctest --output-on-failure --verbose
+      shell: bash
