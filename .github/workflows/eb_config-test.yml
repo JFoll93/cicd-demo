@@ -1,0 +1,13 @@
+name: Testing EB EESSI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: eessi/github-action-eessi@v3
+    - name: Test EB EESSI
+      run: |
+        module load EESSI-extend
+        eb --logtostdout --software-commit=$GITHUB_SHA test-eessi.eb
+      shell: bash
